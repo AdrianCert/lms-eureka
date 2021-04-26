@@ -1,0 +1,12 @@
+{
+  "name": "Eureka Server",
+  "description": "Eureka Server for lms",
+  "website": "https://github.com/AdrianCert/lms-eureka",
+  "success_url": "/",
+  "env": {
+      "EUREKA_PASSWORD": {
+          "description": "Password for the admin interface.",
+          "generator": "secret"
+      }
+  }
+}
