@@ -2,13 +2,17 @@ server:
   port: ${PORT:5000}
 security:
   user:
-    password: ${eureka.password}
+    password: ${EUREKA_PASSWORD:password}
 
 eureka:
   instance:
-    hostname: localhost
-    statusPageUrl: https://${eureka.instance.hostname}/info
-    healthCheckUrl: https://${eureka.instance.hostname}/health
+    hostname: ${EUREKA_HOST:localhost}
+    secure-port-enabled: true
+    nonSecurePort: 80
+    securePort: 443
+    statusPageUrl: https://${eureka.hostname}:443/actuator/info
+    healthCheckUrl: https://${eureka.hostname}:443/actuator/health
+    secureHealthCheckUrl: https://${eureka.hostname}:443/actuator/health
     homePageUrl: https://${eureka.instance.hostname}/
   client:
     registerWithEureka: false
@@ -19,9 +23,9 @@ eureka:
     # Configuration for disabling self-preservation
     enable-self-preservation: true
     # The server expects client heartbeats at an interval configured with this property
-    expected-client-renewal-interval-seconds: 30
+#    expected-client-renewal-interval-seconds: 30
     # Indicates the time in seconds that the Eureka server waits since it received the last heartbeat from a client before it can remove that client from its registry
-    lease-expiration-duration-in-seconds: 90
+#    lease-expiration-duration-in-seconds: 90
     # This property tells the Eureka server to run a job at this frequency to evict the expired clients
     eviction-interval-timer-in-ms: 60000
     # Based on this property, the server calculates the expected heartbeats per minute from all the registered clients
@@ -29,6 +33,3 @@ eureka:
     # This property tells the Eureka server to run a job at this frequency to calculate the expected heartbeats from all the registered clients at this minute
     renewal-threshold-update-interval-ms: 900000
 
-
-
-  password: ${EUREKA_PASSWORD:password}
