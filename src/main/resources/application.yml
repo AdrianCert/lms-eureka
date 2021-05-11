@@ -2,11 +2,11 @@ server:
   port: ${PORT:5000}
 security:
   user:
-    password: ${eureka.password}
+    password: ${EUREKA_PASSWORD:password}
 
->>>>>>> parent of 325dd21 (update)
 eureka:
   server:
+    enable-self-preservation: true
   instance:
     hostname: ${EUREKA_HOST:localhost}
     secure-port-enabled: true
