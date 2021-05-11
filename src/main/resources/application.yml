@@ -1,5 +1,12 @@
 server:
   port: ${PORT:5000}
+<<<<<<< HEAD
+=======
+security:
+  user:
+    password: ${eureka.password}
+
+>>>>>>> parent of 325dd21 (update)
 eureka:
   instance:
     hostname: ${EUREKA_HOST:localhost}
@@ -19,9 +26,9 @@ eureka:
     # Configuration for disabling self-preservation
     enable-self-preservation: true
     # The server expects client heartbeats at an interval configured with this property
-#    expected-client-renewal-interval-seconds: 30
     # Indicates the time in seconds that the Eureka server waits since it received the last heartbeat from a client before it can remove that client from its registry
 #    lease-expiration-duration-in-seconds: 90
+    lease-expiration-duration-in-seconds: 90
     # This property tells the Eureka server to run a job at this frequency to evict the expired clients
     eviction-interval-timer-in-ms: 60000
     # Based on this property, the server calculates the expected heartbeats per minute from all the registered clients
