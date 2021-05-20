@@ -4,8 +4,6 @@ security:
   user:
     password: ${EUREKA_PASSWORD:password}
 
-spring:
-  profiles: peer
 eureka:
   server:
     enable-self-preservation: true
@@ -24,4 +22,8 @@ eureka:
     fetchRegistry: false
     service-url:
       defaultZone: http://${security.user.name}:${security.user.password}@${eureka.instance.hostname}:${server.port}/eureka/
+           
+---
+spring:
+  profiles: peer
 
